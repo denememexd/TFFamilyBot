@@ -1,17 +1,25 @@
 const Discord = require('discord.js');
-exports.run = function(client, message, args) {
-  message.reply('**TFFamily Bot Bilgi**\n**---------------------** \nMerhaba Ben TFFamilyBot \n**---------------------**\nEglence Icin Tasarlanmadım \n**---------------------**\nHizmet Icin Tasarlandim');
+
+exports.run = (client, message, args) => {
+	let mesaj = args.slice(0).join(' ');
+	if (mesaj.length < 1) return message.reply('Yazmam için herhangi bir şey yazmalısın.');
+    message.delete();
+    const embed = new Discord.RichEmbed()
+    .setAuthor("TFFamily")
+    .setColor(3447003)
+    .setDescription(`${mesaj}`)
+    return message.channel.sendEmbed(embed);
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: ['say', 'söyle'],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'bilgi',
-  description: 'Botun Hakkında Bilgi.',
-  usage: 'bilgi'
+  name: 'yaz',
+  description: 'İstediğiniz şeyi bota yazdırır.',
+  usage: 'yaz [yazdırmak istediğiniz şey]'
 };
