@@ -14,7 +14,7 @@ const log = message => {
 };
 
 client.on("ready", () => {
-  client.user.setGame(prefix + "yardım | BlaxkLion | HizmetBot") 
+  client.user.setGame(prefix + "yardım | TFFamily | Support") 
   console.log("Bağlandım!")   
 });
 
